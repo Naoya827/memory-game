@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output
+client/dist/
+
+# Local SQLite (generated at runtime)
+server/db/*.db
+server/db/*.db-wal
+server/db/*.db-shm
+
+# Env
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+*.log
+
+# Cursor / local only
+.claude/settings.local.json
