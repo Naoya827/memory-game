@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import HomeHero from '../components/HomeHero.jsx';
 
 const DIFFICULTIES = [
   { value: 'easy', label: 'かんたん', sub: '8枚 / 4ペア' },
@@ -28,11 +29,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Title */}
-        <div className="text-center mb-10">
-          <div className="text-6xl mb-3">🎴</div>
-          <h1 className="text-4xl font-bold text-white tracking-tight">神経衰弱</h1>
-          <p className="text-white/50 mt-2 text-sm">Memory Card Game</p>
-        </div>
+        <HomeHero title="神経衰弱" subtitle="Memory Card Game" />
 
         <div className="bg-white/10 backdrop-blur rounded-2xl p-6 space-y-6">
           {/* Mode selection */}
@@ -46,11 +43,10 @@ export default function HomePage() {
                 <button
                   key={value}
                   onClick={() => setMode(value)}
-                  className={`py-3 rounded-xl font-semibold text-sm transition-all ${
-                    mode === value
+                  className={`py-3 rounded-xl font-semibold text-sm transition-all ${mode === value
                       ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/30 scale-105'
                       : 'bg-white/5 text-white/70 hover:bg-white/10'
-                  }`}
+                    }`}
                 >
                   <span className="mr-1">{icon}</span> {label}
                 </button>
@@ -89,11 +85,10 @@ export default function HomePage() {
                 <button
                   key={value}
                   onClick={() => setDifficulty(value)}
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all ${
-                    difficulty === value
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all ${difficulty === value
                       ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/30'
                       : 'bg-white/5 text-white/70 hover:bg-white/10'
-                  }`}
+                    }`}
                 >
                   <span>{label}</span>
                   <span className={`text-xs ${difficulty === value ? 'text-indigo-200' : 'text-white/40'}`}>

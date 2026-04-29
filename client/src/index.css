@@ -31,8 +31,46 @@
 }
 
 .card-back-face {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #2563eb 0%,
+    #1d4ed8 35%,
+    #1e3a8a 70%,
+    #0f172a 100%
+  );
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.35),
+    inset 0 0 0 2px #e2e8f0,
+    inset 0 0 0 5px #1e40af,
+    inset 0 0 0 6px rgba(226, 232, 240, 0.35);
+}
+
+/* 内枠 */
+.card-back-face::before {
+  content: '';
+  position: absolute;
+  inset: 14%;
+  border-radius: 0.3rem;
+  border: 1.5px solid rgba(241, 245, 249, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.25);
+  pointer-events: none;
+}
+
+/* 中央の菱形モチーフ */
+.card-back-face::after {
+  content: '';
+  position: absolute;
+  width: 38%;
+  aspect-ratio: 1;
+  transform: rotate(45deg);
+  border-radius: 3px;
+  border: 2px solid rgba(248, 250, 252, 0.55);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 55%);
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  pointer-events: none;
 }
 
 .card-front-face {
@@ -43,4 +81,52 @@
 
 .card-front-face.matched {
   background: #d1fae5;
+}
+
+/* ホーム画面タイトル上のミニ裏面（トランプの縦長比率） */
+.home-card-back-icon {
+  position: relative;
+  width: 4.25rem;
+  height: 5.95rem;
+  border-radius: 0.55rem;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #2563eb 0%,
+    #1d4ed8 35%,
+    #1e3a8a 70%,
+    #0f172a 100%
+  );
+  box-shadow:
+    0 8px 20px -6px rgb(0 0 0 / 0.5),
+    inset 0 0 0 2px #e2e8f0,
+    inset 0 0 0 5px #1e40af,
+    inset 0 0 0 6px rgba(226, 232, 240, 0.35);
+}
+
+.home-card-back-icon::before {
+  content: '';
+  position: absolute;
+  inset: 12%;
+  border-radius: 0.35rem;
+  border: 1.5px solid rgba(241, 245, 249, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.25);
+  pointer-events: none;
+}
+
+.home-card-back-icon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 32%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 3px;
+  border: 2px solid rgba(248, 250, 252, 0.55);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 55%);
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  pointer-events: none;
 }

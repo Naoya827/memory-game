@@ -9,10 +9,8 @@ export default function Card({ card, onClick }) {
       onClick={handleClick}
     >
       <div className={`card-inner w-full h-full ${card.isFlipped || card.isMatched ? 'flipped' : ''}`}>
-        {/* 裏面 */}
-        <div className="card-face card-back-face text-2xl sm:text-3xl">
-          🎴
-        </div>
+        {/* 裏面（トランプ裏面風） */}
+        <div className="card-face card-back-face" aria-hidden="true" />
         {/* 表面 */}
         <div className={`card-face card-front-face text-2xl sm:text-3xl ${card.isMatched ? 'matched' : ''}`}>
           {card.symbol}

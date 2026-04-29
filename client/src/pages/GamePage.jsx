@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Board from '../components/Board.jsx';
 import ScoreBoard from '../components/ScoreBoard.jsx';
 import { useGame } from '../hooks/useGame.js';
+import ProgressBar from '../components/ProgressBar.jsx';
 
 const DIFFICULTY_LABELS = { easy: 'かんたん', normal: 'ふつう', hard: 'むずかしい' };
 
@@ -58,7 +59,7 @@ export default function GamePage() {
 
       {/* Progress */}
       <div className="text-white/40 text-xs mb-4">
-        {matchedCount} / {totalPairs} ペア成立
+        <ProgressBar current={matchedCount} total={totalPairs} />
       </div>
 
       {/* ScoreBoard */}
