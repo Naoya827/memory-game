@@ -14,6 +14,7 @@ export default function HomePage() {
   const [difficulty, setDifficulty] = useState('normal');
   const [player1, setPlayer1] = useState('');
   const [player2, setPlayer2] = useState('');
+  const [showRules, setShowRules] = useState(false);
 
   const handleStart = () => {
     navigate('/game', {
@@ -31,6 +32,25 @@ export default function HomePage() {
         {/* Title */}
         <HomeHero title="神経衰弱" subtitle="Memory Card Game" />
 
+        {/* トグルボタンを設置 */}
+        <div className="flex justify-center mb-4">
+          <button
+            type="button" // フォーム誤送信防止
+            onClick={() => setShowRules(!showRules)}
+            className="text-white/60 hover:text-white text-xs bg-white/5 px-3 py-1 rounded-full transition-colors"
+          >
+            {showRules ? '▲ ルールを閉じる' : '▼ ルールを表示'}
+          </button>
+        </div>
+        {/* 条件付きレンダリングでルールを表示 */}
+        {showRules && (
+          <div className="bg-white/5 backdrop-blur rounded-xl p-4 mb-4 text-white/70 text-sm space-y-1 border border-white/10">
+            <p>・同じ絵のペアをそろえよう</p>
+            <p>・全部めくればクリア！</p>
+            <p>・対戦モードは交代でめくっていくよ</p>
+          </div>
+        )}
+
         <div className="bg-white/10 backdrop-blur rounded-2xl p-6 space-y-6">
           {/* Mode selection */}
           <div>
@@ -44,8 +64,8 @@ export default function HomePage() {
                   key={value}
                   onClick={() => setMode(value)}
                   className={`py-3 rounded-xl font-semibold text-sm transition-all ${mode === value
-                      ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/30 scale-105'
-                      : 'bg-white/5 text-white/70 hover:bg-white/10'
+                    ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/30 scale-105'
+                    : 'bg-white/5 text-white/70 hover:bg-white/10'
                     }`}
                 >
                   <span className="mr-1">{icon}</span> {label}
@@ -86,8 +106,8 @@ export default function HomePage() {
                   key={value}
                   onClick={() => setDifficulty(value)}
                   className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all ${difficulty === value
-                      ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/30'
-                      : 'bg-white/5 text-white/70 hover:bg-white/10'
+                    ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/30'
+                    : 'bg-white/5 text-white/70 hover:bg-white/10'
                     }`}
                 >
                   <span>{label}</span>
